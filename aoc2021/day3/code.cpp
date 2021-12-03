@@ -16,22 +16,22 @@ int main()
         }
     }
 
-    string gamma = "000000000000";
-    string epsilon = "000000000000";
+    string gamma_bin = "000000000000";
+    string epsilon_bin = "000000000000";
     
     for(int i = 0; i < 12; i++) {
         if(p[i].first > p[i].second) {
-            gamma[i] = '0';
-            epsilon[i] = '1';
+            gamma_bin[i] = '0';
+            epsilon_bin[i] = '1';
         }
         else if(p[i].first < p[i].second) {
-            gamma[i] = '1';
-            epsilon[i] = '0';
+            gamma_bin[i] = '1';
+            epsilon_bin[i] = '0';
         }
     }
 
-    int gamma_dec = stoi(gamma, nullptr, 2);
-    int epsilon_dec = stoi(epsilon, nullptr, 2);
+    int gamma_dec = stoi(gamma_bin, nullptr, 2);
+    int epsilon_dec = stoi(epsilon_bin, nullptr, 2);
 
     cout << gamma_dec*epsilon_dec << endl;
 }
