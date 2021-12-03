@@ -1,5 +1,3 @@
-// NOT SOLVED YET!!!
-
 #include <iostream>
 
 using namespace std;
@@ -10,41 +8,29 @@ int main()
 
     int n;
     
-    int sum1 = 0, sum2 = 0;
+    int sum1 = 0, sum2 = 0, temp;
     int count = 0;
-    pair<bool, int> flag1, flag2;
+    int ans = 0;
+    bool flag = false;
+    
+    cin >> n;
+    sum1 += n;
+
+    cin >> n;
+    sum1 += n;
+    sum2 += n;
+
+    cin >> n;
+    sum1 += n;
+    sum2 += n;
+    temp = n;
 
     while(cin >> n) {
-        if(!flag1.first && !flag2.first) {
-            sum1 += n;
-            flag1.first = true;
-            flag1.second += 1;
-            continue;
-        }
-        if(flag1.second > 1 && !flag2.first) {
-            sum2 += n;
-            flag2.first = true;
-            flag2.second += 1;
-
-            sum1 += n;
-            flag1.second += 1;
-            continue;
-        }
-
-        if(flag1.first && flag2.first) {
-            if(flag1.second < 3) {
-                sum1 += n;
-                flag1.second += 1;
-            }
-            else {
-                sum1 = 0;
-                flag1.second = 0;
-            }
-            if(flag2.second > 3) {
-                sum2 += n;
-                flag2.second += 1;
-            }
-
-        }
+        sum2 += n;
+        if(sum2 > sum1) ans++;
+        sum1 = sum2;
+        sum2 = temp+n;
+        temp = n;
     }
+    cout << ans << endl;
 }
